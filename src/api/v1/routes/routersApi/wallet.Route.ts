@@ -1,24 +1,24 @@
 import { Router, Request, Response } from 'express';
-const classRouter = Router();
+const walletRouter = Router();
 
 // Middleware
 
 // Controller
-import { classController } from '../../controllers/class.Controller';
+import { walletController } from '../../controllers/wallet.Controller';
 
 
 //-------------------------------------------- api/products/... -------------------------------
 
 //--------------------------------------------GET------------------------------------------
-classRouter.get('/', classController.getClassByIDUser);
+// walletRouter.get('/', walletController.getwalletByIDUser);
 
 
 
 //--------------------------------------------POST-----------------------------------------
-classRouter.post('/',classController.createClass);
-
+walletRouter.post('/create/keystore',walletController.createWallet);
+walletRouter.post('/access/keystore',walletController.accessWallet);
 //--------------------------------------------PUT------------------------------------------
 
 //--------------------------------------------DELETE----------------------------------------
 
-export = classRouter;
+export = walletRouter;

@@ -1,0 +1,9 @@
+{
+    "arrowParens": "always",
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": true,
+    "vueIndentScriptAndStyle": false,
+    "printWidth": 100,
+    "parser": "typescript"
+  }

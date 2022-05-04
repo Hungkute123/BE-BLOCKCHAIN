@@ -1,8 +1,8 @@
 import { Express } from 'express';
-import classRouter from './routersApi/class.Route';
+import walletRouter from './routersApi/wallet.Route';
 
 
 
 export function routersApi (app: Express): void {
-	app.use('/api/class',classRouter)
+	app.use('/api/wallet',walletRouter)
 }

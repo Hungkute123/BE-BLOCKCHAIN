@@ -21,10 +21,6 @@ const app: Express = express();
 import { connectDB } from './start/connectDB';
 connectDB();
 
-// set view engine
-import { setViewEngine } from './start/ejsConfig';
-setViewEngine(app);
-
 // handle Middleware => cors, helmet,...
 import { startMiddleware } from './api/v1/middlewares/start.Middleware';
 startMiddleware(app);
