@@ -68,6 +68,15 @@ class WalletController {
                     res.status(status).send({ data, message: 'Access wallet success' });
                 }
             }
-        });
+        }
+    );
+    walletBalance = asyncMiddleware(
+        async (req: Request, res: Response): Promise<void> => {
+            const myCoin = req.app.locals.myCoin;
+            const publicKey = req.query.publickey;
+            const balance = myCoin.getBalanceOfAddress(publicKey)
+            res.status(200).send({ data: balance, message: 'Get wallet balance success' });
+        } 
+    );
 }
 export const walletController = new WalletController();

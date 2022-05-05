@@ -1,3 +1,4 @@
+import CryptoBlockchain from "../classes/cryptoBlockchain.Classes";
 import { WalletModel } from "../models/wallet.Model";
 
 class WalletServices {
@@ -72,5 +73,6 @@ class WalletServices {
 			throw new Error(error.messages);
 		}
 	};
+	
 }
 export const walletServices = new WalletServices()

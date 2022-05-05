@@ -1,12 +1,13 @@
 import sha256 from 'crypto-js/sha256';
+import Transaction from './transaction.Classes';
 class CryptoBlock {
   index: number;
   timestamp: string;
-  data: object;
+  data: Transaction[];
   precedingHash: string;
   hash: string;
   nonce: number;
-  constructor(index: number, timestamp: string, data: object, precedingHash = " ") {
+  constructor(index: number, timestamp: string, data: Transaction[], precedingHash = " ") {
     this.index = index;
     this.timestamp = timestamp;
     this.data = data;

@@ -1,24 +1,23 @@
 import { Router, Request, Response } from 'express';
-const walletRouter = Router();
+const transactionRouter = Router();
 
 // Middleware
 
 // Controller
-import { walletController } from '../../controllers/wallet.Controller';
+import { transactionController } from '../../controllers/transacton.Controller';
 
 
 //-------------------------------------------- api/products/... -------------------------------
 
 //--------------------------------------------GET------------------------------------------
-// walletRouter.get('/', walletController.getwalletByIDUser);
-walletRouter.get('/balance',walletController.walletBalance);
-
-
+transactionRouter.get('/my-transaction',transactionController.transactionOfAddress);
+transactionRouter.get('/pending-tx',transactionController.pendingTransaction);
+transactionRouter.get('/mining',transactionController.mining);
 //--------------------------------------------POST-----------------------------------------
-walletRouter.post('/create/keystore',walletController.createWallet);
-walletRouter.post('/access/keystore',walletController.accessWallet);
+transactionRouter.post('/send-mc',transactionController.sendMyCoin);
+
 //--------------------------------------------PUT------------------------------------------
 
 //--------------------------------------------DELETE----------------------------------------
 
-export = walletRouter;
+export = transactionRouter;

@@ -1,15 +1,23 @@
 import { Schema, model } from 'mongoose';
 interface Block {
-    previousHash: string,
-    timestamp: string,
-    nonce: number,
-    hash: string,
+    index: number;
+    timestamp: string;
+    data: object[];
+    precedingHash: string;
+    hash: string;
+    nonce: number;
 }
 const BlockSchema = new Schema<Block>({
-    previousHash: { type: String, require: true },
-    timestamp: { type: String, require: true },
-    nonce: { type: Number, require: true },
-    hash: { type: String, require: true },
+    index: Number,
+    timestamp: String,
+    data: [],
+    precedingHash: String,
+    hash: String,
+    nonce: Number,
+    // previousHash: { type: String, require: true },
+    // timestamp: { type: String, require: true },
+    // nonce: { type: Number, require: true },
+    // hash: { type: String, require: true },
 });
 
 export const BlockModel = model<Block>('block', BlockSchema);

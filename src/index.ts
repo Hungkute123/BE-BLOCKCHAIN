@@ -30,8 +30,11 @@ import { routersApi } from './api/v1/routes/start.Route';
 routersApi(app);
 
 import { unexpectedError } from './api/v1/middlewares/unexpectedError.Middleware';
+
 app.use(unexpectedError);
 
+import CryptoBlockchain from './api/v1/classes/cryptoBlockchain.Classes';
+app.locals.myCoin = new CryptoBlockchain;
 // listen on port: default port = 5000
 const PORT: any = process.env.PORT || 5000;
 app.listen(PORT, (): void => {

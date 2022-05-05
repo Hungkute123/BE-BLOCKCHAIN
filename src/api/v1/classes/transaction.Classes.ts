@@ -1,17 +1,19 @@
 const EC = require('elliptic');
-const ec = new EC('secp256k1');
+const ec = new EC.ec("secp256k1");
 import sha256 from 'crypto-js/sha256';
 class Transaction {
     fromAddress: string;
     toAddress: string;
     amount: number;
+    txFee: number
     timestamp: number;
-    txHash: any;
-    signature: any;
-    constructor(fromAddress: string, toAddress: string, amount: number) {
+    txHash: string;
+    signature!: string;
+    constructor(fromAddress: string, toAddress: string, amount: number,txFee: number) {
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
+        this.txFee = txFee;
         this.timestamp = Date.now();
         this.txHash = this.calculateHash();
     }
