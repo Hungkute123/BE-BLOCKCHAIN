@@ -1,5 +1,5 @@
-Đầu tiên truy cập vào github : https://github.com/Hungkute123/BE-BLOCKCHAIN và tải về
-au khi giải nén, mở trong visual studio code và chọn Terminal -> New Terminal
+Đầu tiên truy cập vào github : https://github.com/Hungkute123/BE-BLOCKCHAIN và Chọn Code và chọn Dowload ZIP về
+Sau khi giải nén, mở trong visual studio code và chọn Terminal -> New Terminal
 Sau đó nhấn "npm install"
 Sau đó nhấn "npm run dev"
 
