@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 interface Block {
-    index: number;
     timestamp: string;
     data: object[];
     precedingHash: string;
@@ -8,7 +7,6 @@ interface Block {
     nonce: number;
 }
 const BlockSchema = new Schema<Block>({
-    index: Number,
     timestamp: String,
     data: [],
     precedingHash: String,

@@ -9,7 +9,7 @@ class Transaction {
     timestamp: number;
     txHash: string;
     signature!: string;
-    constructor(fromAddress: string, toAddress: string, amount: number,txFee: number) {
+    constructor(fromAddress: string, toAddress: string, amount: number, txFee: number) {
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
@@ -19,7 +19,7 @@ class Transaction {
     }
 
     calculateHash() {
-        return sha256(this.fromAddress + this.toAddress + this.amount + this.timestamp).toString();
+        return sha256(this.fromAddress + this.toAddress + this.amount + this.txFee + this.timestamp).toString();
     }
 
     signTransaction(signingKey: any) {

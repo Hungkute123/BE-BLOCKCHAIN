@@ -13,7 +13,7 @@ class CryptoBlockchain {
         this.miningReward = 2;
     }
     startGenesisBlock() {
-        return new CryptoBlock(0, "05/05/2022", [], "0");
+        return new CryptoBlock("05/05/2022", [], "0");
     }
 
     obtainLatestBlock() {
@@ -21,7 +21,6 @@ class CryptoBlockchain {
     }
     addNewBlock(newBlock: CryptoBlock) {
         newBlock.precedingHash = this.obtainLatestBlock().hash;
-        //newBlock.hash = newBlock.computeHash();
         newBlock.proofOfWork(this.difficulty);
         this.blockchain.push(newBlock);
     }
@@ -46,15 +45,17 @@ class CryptoBlockchain {
         return true;
     }
     minePendingTransactions(miningRewardAddress: string) {
-        const index = Number(this.obtainLatestBlock) + 1;
-        let block = new CryptoBlock(index, String(Date.now()), this.pendingTransactions);
-        block.proofOfWork(this.difficulty);
+        // const index = Number(this.obtainLatestBlock) + 1;
+        if (this.pendingTransactions.length > 0) {
+            let block = new CryptoBlock(String(Date.now()), this.pendingTransactions);
+            block.proofOfWork(this.difficulty);
 
-        this.blockchain.push(block);
+            this.blockchain.push(block);
 
-        this.pendingTransactions = [
-            new Transaction("0x000", miningRewardAddress, this.miningReward, 0)
-        ];
+            this.pendingTransactions = [
+                new Transaction("0x000", miningRewardAddress, this.miningReward, 0)
+            ];
+        }
     }
     getBalanceOfAddress(address: string) {
         let balance = 20;
@@ -74,6 +75,7 @@ class CryptoBlockchain {
 
             }
         }
+
         return balance;
     }
 
